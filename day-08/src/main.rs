@@ -80,8 +80,8 @@ fn overlap_count(a: &str, b: &str) -> u8 {
     a.chars().filter(|&c| b.contains(c)).count() as u8
 }
 
-fn part_one(entires: &[Entry]) -> u32 {
-    entires
+fn part_one(entries: &[Entry]) -> u32 {
+    entries
         .iter()
         .map(|e| {
             e.output_values
