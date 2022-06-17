@@ -25,7 +25,7 @@ fn main() {
     println!("{}", solve(&expanded_risk_levels));
 }
 
-fn solve(costs: &Vec<Vec<u32>>) -> u32 {
+fn solve(costs: &[Vec<u32>]) -> u32 {
     let size = costs.len();
     let start = (0, 0);
     let end = (size - 1, size - 1);

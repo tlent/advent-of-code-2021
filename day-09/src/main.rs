@@ -61,6 +61,6 @@ fn part_two(heightmap: &[Vec<u8>]) -> u32 {
             basin_sizes.push(basin_size);
         }
     }
-    basin_sizes.sort();
+    basin_sizes.sort_unstable();
     basin_sizes[basin_sizes.len() - 3..].iter().product()
 }

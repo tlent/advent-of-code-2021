@@ -22,7 +22,7 @@ fn main() {
         *pair_counts.get_mut(&(pair[0], pair[1])) += 1;
     }
     for step in 1..=40 {
-        let prev_pair_counts = pair_counts.clone();
+        let prev_pair_counts = pair_counts;
         for a in 'A'..='Z' {
             for b in 'A'..='Z' {
                 let count = *prev_pair_counts.get(&(a, b));

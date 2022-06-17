@@ -1,7 +1,7 @@
 const INPUT: &str = include_str!("../input");
 
 fn main() {
-    let entries: Vec<_> = INPUT.lines().map(|l| Entry::from_str(l)).collect();
+    let entries: Vec<_> = INPUT.lines().map(Entry::from_str).collect();
     println!("{}", part_one(&entries));
     println!("{}", part_two(&entries));
 }
@@ -15,11 +15,11 @@ impl Entry {
     fn from_str(s: &str) -> Self {
         let mut parts = s.split(" | ");
         let mut signal_patterns: [String; 10] = Default::default();
-        for (i, s) in parts.next().unwrap().split(" ").enumerate() {
+        for (i, s) in parts.next().unwrap().split(' ').enumerate() {
             signal_patterns[i] += s;
         }
         let mut output_values: [String; 4] = Default::default();
-        for (i, s) in parts.next().unwrap().split(" ").enumerate() {
+        for (i, s) in parts.next().unwrap().split(' ').enumerate() {
             output_values[i] += s;
         }
         Self {

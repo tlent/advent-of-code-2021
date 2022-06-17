@@ -37,7 +37,7 @@ fn fish_spawn_dynamic_programming(fish: &[u8], days: usize) -> u64 {
 }
 
 // initial solution that works for part one but is too slow for part two
-fn fish_spawn_sim(fish: &[u8], days: usize) -> u64 {
+fn _fish_spawn_sim(fish: &[u8], days: usize) -> u64 {
     let mut fish = fish.to_vec();
     for _ in 0..days {
         let mut new_fish_count = 0;
@@ -49,9 +49,7 @@ fn fish_spawn_sim(fish: &[u8], days: usize) -> u64 {
                 *f -= 1;
             }
         }
-        for _ in 0..new_fish_count {
-            fish.push(8);
-        }
+        fish.resize(fish.len() + new_fish_count, 8);
     }
     fish.len() as u64
 }

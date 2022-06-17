@@ -49,7 +49,7 @@ impl Graph {
                     let n = Node {
                         label: String::from(from_label),
                         id: nodes.len(),
-                        cave_type: if from_label.chars().nth(0).unwrap().is_uppercase() {
+                        cave_type: if from_label.chars().next().unwrap().is_uppercase() {
                             CaveType::Big
                         } else {
                             CaveType::Small
@@ -68,7 +68,7 @@ impl Graph {
                     let n = Node {
                         label: String::from(to_label),
                         id: nodes.len(),
-                        cave_type: if to_label.chars().nth(0).unwrap().is_uppercase() {
+                        cave_type: if to_label.chars().next().unwrap().is_uppercase() {
                             CaveType::Big
                         } else {
                             CaveType::Small

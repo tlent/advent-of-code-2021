@@ -1,7 +1,7 @@
 const INPUT: &str = include_str!("../input");
 
 fn main() {
-    let bits = Bits::from_hex_string(&INPUT.trim());
+    let bits = Bits::from_hex_string(INPUT.trim());
     let root_packet = Packet::from_bits(bits);
     let mut version_sum = 0;
     let mut stack = vec![&root_packet];

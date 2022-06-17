@@ -3,7 +3,7 @@ use std::str::FromStr;
 const INPUT: &str = include_str!("../input");
 
 fn main() {
-    let commands = parse_input(&INPUT);
+    let commands = parse_input(INPUT);
     println!("{}", part_one(&commands));
     println!("{}", part_two(&commands));
 }

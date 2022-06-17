@@ -1,7 +1,7 @@
 const INPUT: &str = include_str!("../input");
 
 fn main() {
-    let line_segments: Vec<_> = INPUT.lines().map(|l| LineSegment::from_str(l)).collect();
+    let line_segments: Vec<_> = INPUT.lines().map(LineSegment::from_str).collect();
     println!("{}", part_one(&line_segments));
     println!("{}", part_two(&line_segments));
 }
@@ -54,16 +54,14 @@ impl LineSegment {
             x_values.map(|x| (x, self.start_y)).collect()
         } else if self.is_vertical() {
             y_values.map(|y| (self.start_x, y)).collect()
+        } else if self.start_x > self.end_x && self.start_y > self.end_y {
+            x_values.rev().zip(y_values.rev()).collect()
+        } else if self.start_x > self.end_x {
+            x_values.rev().zip(y_values).collect()
+        } else if self.start_y > self.end_y {
+            x_values.zip(y_values.rev()).collect()
         } else {
-            if self.start_x > self.end_x && self.start_y > self.end_y {
-                x_values.rev().zip(y_values.rev()).collect()
-            } else if self.start_x > self.end_x {
-                x_values.rev().zip(y_values).collect()
-            } else if self.start_y > self.end_y {
-                x_values.zip(y_values.rev()).collect()
-            } else {
-                x_values.zip(y_values).collect()
-            }
+            x_values.zip(y_values).collect()
         }
     }
 }

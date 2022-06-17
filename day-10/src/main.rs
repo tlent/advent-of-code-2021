@@ -67,6 +67,6 @@ fn part_two(input: &str) -> u64 {
         }
         scores.push(score);
     }
-    scores.sort();
+    scores.sort_unstable();
     scores[scores.len() / 2]
 }

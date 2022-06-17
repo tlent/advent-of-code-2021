@@ -35,7 +35,7 @@ impl DotGrid {
         let mut max_x = 0;
         let mut max_y = 0;
         for line in input.lines() {
-            let mut parts = line.split(",");
+            let mut parts = line.split(',');
             let x = parts.next().unwrap().parse().unwrap();
             let y = parts.next().unwrap().parse().unwrap();
             dot_coordinates.insert((x, y));
